@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: awsebcli
-Version: 3.6.1
+Version: 3.6.2
 Summary: Command Line Interface for AWS EB.
 Home-page: http://aws.amazon.com/elasticbeanstalk/
 Author: AWS Elastic Beanstalk
@@ -246,6 +246,13 @@ Description: ======
         =========
         Changelog
         =========
+        
+        ------------------
+        3.6.2 (2015-12-14)
+        ------------------
+        - Improved logic related to waiting for application version processing
+        - Change tag behavior to allow for '=' in tag values
+        - Prompt for EnvironmentName when not present in env.yaml
         
         ------------------
         3.6.1 (2015-11-23)

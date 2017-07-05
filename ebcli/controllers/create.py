@@ -178,11 +178,14 @@ class CreateController(AbstractBaseController):
 
             if fileoperations.env_yaml_exists():
                 env_name = fileoperations.get_env_name_from_env_yaml()
-                if env_name.endswith('+') and group is None:
-                    io.echo(strings['create.missinggroupsuffix'])
-                    return
+                if env_name is not None:
+                    if env_name.endswith('+') and group is None:
+                        io.echo(strings['create.missinggroupsuffix'])
+                        return
+                    else:
+                        env_name = env_name[:-1] + '-' + group
                 else:
-                    env_name = env_name[:-1] + '-' + group
+                    env_name = io.prompt_for_environment_name(unique_name)
             else:
                 env_name = io.prompt_for_environment_name(unique_name)
 
@@ -411,11 +414,11 @@ def get_and_validate_tags(tags):
         raise InvalidOptionsError(strings['tags.max'])
     for t in tags:
         # validate
-        if not re.match('^[\w\s.:/+%@-]{1,128}=[\w\s.:/+%@-]{0,256}$', t):
+        if not re.match('^[\w\s.:/+%@-]{1,128}=[\w\s.:/+=@-]{0,256}$', t):
             raise InvalidOptionsError(strings['tags.invalidformat'])
         else:
             # build tag
-            key, value = t.split('=')
+            key, value = t.split('=', 1)
             tag_list.append(
                 {'Key': key,
                  'Value': value}

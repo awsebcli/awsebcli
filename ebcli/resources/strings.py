@@ -135,7 +135,7 @@ strings = {
                             'Variables and keys must start with a letter, '
                             'number or one of the following symbols: \\ _ . : / + - @',
     'tags.invalidformat': 'You must provide a comma-separated list using the format name=value to set tags. '
-                          'Tags may only contain letters, numbers, and the following symbols: / _ . : + % - @',
+                          'Tags may only contain letters, numbers, and the following symbols: / _ . : + = - @',
     'tags.max': 'Elastic Beanstalk supports a maximum of 7 tags.',
     'deploy.invalidoptions': 'You cannot use the "--version" option with either the "--message" or "--label" option.',
     'init.getvarsfromoldeb': 'You previous used an earlier version of eb. Getting options from .elasticbeanstalk/config.\n'
@@ -199,7 +199,10 @@ strings = {
                                    'The following modules are missing this file: {modules}',
     'deploy.noenvname': 'No environment name was specified in env.yaml for module {module}. Unable to deploy.',
     'compose.noenvyaml': 'The module {module} does not contain an env.yaml file. This module will be skipped.',
-    'compose.novalidmodules': 'No valid modules were found. No environments will be created.'
+    'compose.novalidmodules': 'No valid modules were found. No environments will be created.',
+    'appversion.processfailed': 'Pre-processing of application version {app_version} has failed.',
+    'appversion.cannotdeploy': 'Some application versions failed to process. Unable to continue deployment.',
+    'appversion.processtimeout': 'All application versions have not reached a "Processed" state. Unable to continue with deployment.'
 }
 
 prompts = {
