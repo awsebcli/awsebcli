@@ -8,7 +8,6 @@ awsebcli.egg-info/PKG-INFO
 awsebcli.egg-info/SOURCES.txt
 awsebcli.egg-info/dependency_links.txt
 awsebcli.egg-info/entry_points.txt
-awsebcli.egg-info/pbr.json
 awsebcli.egg-info/requires.txt
 awsebcli.egg-info/top_level.txt
 bin/__init__.py
