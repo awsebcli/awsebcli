@@ -210,6 +210,13 @@ strings = {
     # codesource
     'codesource.info': 'Configures the code source for the EB CLI to use by default.',
     'codesource.localmsg': 'Default set to use local sources',
+    'restore.info': 'Restores a terminated environment.',
+    'restore.no_env': 'No terminated environments found.\nEnvironments are available for six weeks after termination.',
+
+    # Resotre Environment
+    'restore.displayheader': 'Select a terminated environment to restore',
+    'restore.no_env': 'No terminated environments found.\nEnvironments are available for six weeks after termination.',
+
 }
 
 prompts = {
@@ -281,6 +288,12 @@ prompts = {
                                         'See http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts-roles.html for more info. \nActual error: {}',
     'general.pressenter': 'Press enter to continue',
     'compose.groupname': 'Please enter the group name to be used',
+
+    # Restore
+    'restore.prompt': 'Enter a environment # to restore. ESC to exit.',
+    'restore.selectedenv': '\nSelected environment {env_id}\nApplication:   {app}\nDescription:   {desc}\nCNAME:         {cname}\n'
+                           'Version:       {version}\nPlatform:      {platform}\nTerminated:    {dat_term}\n'
+                           'Restore this environment? [y/n]\n',
 
     # codesource
     'codesource.codesourceprompt': 'Select your codesource',
@@ -379,6 +392,9 @@ flag_text = {
     'logs.instance': 'instance id',
     'logs.stream': 'stream deployment logs that were set up with cloudwatch',
 
+    # Restore
+    'restore.env': 'The ID of the environment to restore',
+
     # Scale
     'scale.number': 'number of desired instances',
     'scale.force': 'skip confirmation prompt',
@@ -459,6 +475,9 @@ responses = {
     'create.noplatform': 'Unable to determine base for template pack (no solution stack)',
     'create.ecsdockerrun1': 'ECS Application sourcebundle validation error: Unsupported AWSEBDockerrunVersion:',
     'appversion.finished': 'Finished processing application version',
+
+    # Env Restore display table
+    'restore.norestore': 'Environment will not be restored'
 }
 git_ignore = [
     '# Elastic Beanstalk Files',        # comment line
