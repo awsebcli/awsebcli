@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: awsebcli
-Version: 3.7.6
+Version: 3.7.7
 Summary: Command Line Interface for AWS EB.
 Home-page: http://aws.amazon.com/elasticbeanstalk/
 Author: AWS Elastic Beanstalk
@@ -246,6 +246,13 @@ Description: ======
         =========
         Changelog
         =========
+        
+        ------------------
+        3.7.7 (2016-04-14)
+        ------------------
+        - Added "ap-south-1" to region list
+        - Checking for existing app versions in application, local or in their account, before creating one when label is specified.
+        - Updating environment name length constraints to 40 char max.
         
         ------------------
         3.7.6 (2016-04-14)
