@@ -18,7 +18,6 @@ from collections import defaultdict
 from datetime import timedelta
 from dateutil import tz
 from dateutil.tz import tzutc
-from dateutil.parser import parser
 import string
 import traceback
 from copy import copy
@@ -115,7 +114,7 @@ class DataPoller(object):
 
     def _account_for_clock_drift(self, environment_health):
         time_str = environment_health['ResponseMetadata']['date']
-        time = parser.parse(time_str)
+        time = datetime.strptime(time_str, '%a, %d %b %Y %H:%M:%S %Z')
         delta = utils.get_delta_from_now_and_datetime(time)
         LOG.debug(u'Clock offset={0}'.format(delta))
         LOG.debug(delta)

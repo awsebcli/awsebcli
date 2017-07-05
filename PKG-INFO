@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: awsebcli
-Version: 3.5.1
+Version: 3.5.2
 Summary: Command Line Interface for AWS EB.
 Home-page: http://aws.amazon.com/elasticbeanstalk/
 Author: Nick Humrich
@@ -246,6 +246,11 @@ Description: ======
         =========
         Changelog
         =========
+        
+        ------------------
+        3.5.2 (2015-08-26)
+        ------------------
+        - Fix bug in "eb health" command preventing it from running.
         
         ------------------
         3.5.1 (2015-08-25)
