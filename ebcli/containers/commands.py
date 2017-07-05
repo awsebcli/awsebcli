@@ -13,6 +13,7 @@
 
 import os
 import json
+import sys
 
 from botocore.compat import six
 from cement.utils.misc import minimal_logger
@@ -175,6 +176,7 @@ def get_exposed_hostports(container_id):
     except CommandError:  # Not running
         return []
 
+
 def version():
     args = ['docker', '--version']
     version_str = _run_quiet(args)
@@ -269,6 +271,7 @@ def _run_quiet(args):
     except CommandError as e:
         _handle_command_error(e)
 
+
 def _run_live(args):
     try:
         return utils.exec_cmd_live_output(args)
@@ -282,4 +285,4 @@ def _handle_command_error(e):
     if socket_perm_msg in e.output:
         raise CommandError(strings['local.run.socketperms'], e.output, e.code)
     else:
-        raise e
+        raise CommandError
