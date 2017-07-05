@@ -26,10 +26,10 @@ from cement.utils.misc import minimal_logger
 from cement.core.exc import CaughtSignal
 from botocore.compat import six
 
-from ..objects.solutionstack import SolutionStack
-from ..core import io, fileoperations
-from ..lib import utils, ec2
-from ..objects.exceptions import ServiceError
+from ebcli.objects.solutionstack import SolutionStack
+from ebcli.core import io, fileoperations
+from ebcli.lib import utils, ec2
+from ebcli.objects.exceptions import ServiceError, ValidationError, NotFoundError
 
 LOG = minimal_logger(__name__)
 
@@ -256,7 +256,8 @@ class Screen(object):
                 if should_exit_display is None:
                     should_exit_display = True
                 return should_exit_display
-            except (ServiceError) as e:
+            except (ServiceError, ValidationError, NotFoundError) as e:
+                # Error messages that should be shown directly to user
                 io.log_error(e.message)
                 time.sleep(4)  # Leave screen stable for a little
                 return False
@@ -273,8 +274,9 @@ class Screen(object):
                     LOG.debug("Caught SIGINT and exiting gracefully from action")
                     return True
             except Exception as e:  # Should never get thrown
-                io.log_error("Exception thrown: {0},{1}. Something strange happened and the request could not be completed."
+                LOG.debug("Exception thrown: {0},{1}. Something strange happened and the request could not be completed."
                              .format(type(e), e.message))
+                io.log_error("Something strange happened and the request could not be completed.")
                 time.sleep(4)
                 return False
 

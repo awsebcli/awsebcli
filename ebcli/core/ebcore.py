@@ -36,7 +36,6 @@ from argparse import SUPPRESS, ArgumentTypeError
 from cement.core import foundation, handler, hook
 from cement.utils.misc import init_defaults
 from cement.core.exc import CaughtSignal
-import botocore
 from botocore.compat import six
 iteritems = six.iteritems
 
@@ -64,13 +63,14 @@ from ..controllers.platform import PlatformController
 from ..controllers.health import HealthController
 from ..controllers.upgrade import UpgradeController
 from ..core.completer import CompleterController
-from ..controllers.local import LocalController, LocalRunController,\
-        LocalLogsController, LocalOpenController, LocalStatusController
+from ..controllers.local import LocalController
 from ..objects.exceptions import *
 from ..resources.strings import strings, flag_text
 from ..labs.controller import LabsController
 from ..controllers.codesource import CodeSourceController
 from ..controllers.restore import RestoreController
+from ..controllers.appversion import AppVersionController
+from ..controllers.lifecycle import LifecycleController
 
 class EB(foundation.CementApp):
     class Meta:
@@ -112,6 +112,8 @@ class EB(foundation.CementApp):
             HealthController,
             CodeSourceController,
             RestoreController,
+            AppVersionController,
+            LifecycleController,
         ]
 
         # register all controllers
@@ -123,7 +125,7 @@ class EB(foundation.CementApp):
 
         super(EB, self).setup()
 
-        #Register global arguments
+        # Register global arguments
         self.add_arg('-v', '--verbose',
                      action='store_true', help=flag_text['base.verbose'])
         self.add_arg('--profile', help=flag_text['base.profile'])

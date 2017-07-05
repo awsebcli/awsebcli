@@ -58,6 +58,7 @@ ebcli/containers/containerfiles/golang-runtime-1.4
 ebcli/containers/containerfiles/python3-runtime
 ebcli/controllers/__init__.py
 ebcli/controllers/abort.py
+ebcli/controllers/appversion.py
 ebcli/controllers/clone.py
 ebcli/controllers/codesource.py
 ebcli/controllers/config.py
@@ -67,6 +68,7 @@ ebcli/controllers/deploy.py
 ebcli/controllers/events.py
 ebcli/controllers/health.py
 ebcli/controllers/initialize.py
+ebcli/controllers/lifecycle.py
 ebcli/controllers/list.py
 ebcli/controllers/local.py
 ebcli/controllers/logs.py
@@ -94,6 +96,7 @@ ebcli/core/fileoperations.py
 ebcli/core/hooks.py
 ebcli/core/io.py
 ebcli/display/__init__.py
+ebcli/display/appversion.py
 ebcli/display/data_poller.py
 ebcli/display/environments.py
 ebcli/display/help.py
@@ -135,10 +138,12 @@ ebcli/lib/botocoredata/elbv2/2015-12-01/service-2.json
 ebcli/objects/__init__.py
 ebcli/objects/application.py
 ebcli/objects/buildconfiguration.py
-ebcli/objects/configuration.py
+ebcli/objects/conversionconfiguration.py
 ebcli/objects/environment.py
+ebcli/objects/environmentsettings.py
 ebcli/objects/event.py
 ebcli/objects/exceptions.py
+ebcli/objects/lifecycleconfiguration.py
 ebcli/objects/region.py
 ebcli/objects/requests.py
 ebcli/objects/solutionstack.py
@@ -146,6 +151,7 @@ ebcli/objects/sourcecontrol.py
 ebcli/objects/tier.py
 ebcli/operations/__init__.py
 ebcli/operations/abortops.py
+ebcli/operations/appversionops.py
 ebcli/operations/buildspecops.py
 ebcli/operations/cloneops.py
 ebcli/operations/commonops.py
@@ -159,6 +165,7 @@ ebcli/operations/eventsops.py
 ebcli/operations/gitops.py
 ebcli/operations/healthops.py
 ebcli/operations/initializeops.py
+ebcli/operations/lifecycleops.py
 ebcli/operations/listops.py
 ebcli/operations/localops.py
 ebcli/operations/logsops.py

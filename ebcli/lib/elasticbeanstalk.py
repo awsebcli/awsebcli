@@ -174,6 +174,7 @@ def delete_application_version(app_name, version_label):
                             ApplicationName=app_name,
                             VersionLabel=version_label,
                             DeleteSourceBundle=True)
+    return result['ResponseMetadata']['RequestId']
 
 
 def delete_application_and_envs(app_name):
@@ -502,6 +503,16 @@ def abort_environment_update(env_name):
     result = _make_api_call('abort_environment_update',
                             EnvironmentName=env_name)
     return result['ResponseMetadata']['RequestId']
+
+
+def update_application_resource_lifecycle(app_name, resource_config):
+    LOG.debug('Inside update_application_resource_lifecycle api wrapper')
+
+    response = _make_api_call('update_application_resource_lifecycle',
+                              ApplicationName=app_name,
+                              ResourceLifecycleConfig=resource_config)
+
+    return response
 
 
 def update_env_application_version(env_name,

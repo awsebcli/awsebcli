@@ -1,6 +1,14 @@
 =========
 Changelog
 =========
+------------------
+3.9.0 (2016-12-22)
+------------------
+- Added native support in 'eb logs' for log streaming.
+- Added '--log-group' and '--cloudwatch-logs' flags in 'eb logs'
+- Added 'appversion' command to managed application versions
+- Added 'appversion lifecycle' sub command to manage application lifecycle configurations
+
 -------------------
 3.8.10 (2016-12-19)
 -------------------
