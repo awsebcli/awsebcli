@@ -251,6 +251,18 @@ strings = {
     'appversion.delete.notfound': 'Application {} does not have Application Version {}.',
     'appversion.delete.deployed': 'Cannot delete Application version {} as it is deployed to Environments: {}',
     'appversion.delete.none': 'You must specify an Application version label to delete an Application version',
+
+    # CodeCommit
+    'codecommit.nosc': 'Cannot setup CodeCommit because there is no Source Control setup, continuing with initialization',
+    'codecommit.ccwarning': 'Note: Elastic Beanstalk now supports AWS CodeCommit; a fully-managed source control service.'
+                    ' To learn more, see Docs: https://aws.amazon.com/codecommit/',
+    'codecommit.norepo': 'Repository does not exist in CodeCommit',
+    'codecommit.nobranch': 'Branch does not exist in CodeCommit',
+    'codecommit.badregion': 'AWS CodeCommit is not supported in this region; continuing initialization without CodeCommit',
+
+    # CodeBuild
+    'codebuild.noheader': 'Beanstalk configuration header \'{header}\' is missing from Buildspec file; will not use Beanstalk Code Build integration',
+    'codebuild.latestplatform': 'Buildspec file is present but no image is specified; using latest image for selected platform: {platform}',
 }
 
 prompts = {
@@ -339,6 +351,12 @@ prompts = {
 
     'appversion.delete.validate': 'Do you want to delete the application version with label: {}? (y/n)',
     'appversion.delete.prompt': 'Select a version # to delete (1 to {}).',
+
+    # CodeCommit
+    'codecommit.usecc': 'Do you wish to continue with CodeCommit? (y/N) (default is n)',
+
+    # CodeBuild
+    'codebuild.getplatform': 'Could not determine best image for buildspec file please select from list.\n Current chosen platform: {platform}',
 }
 
 alerts = {
@@ -393,6 +411,7 @@ flag_text = {
     'create.modules': 'a list of modules',
     'create.elb_type': 'load balancer type',
     'create.source': 'source of code to create from directly; example source_location/repo/branch',
+    'create.process': 'enable preprocessing of the application version',
 
     # Deploy
     'deploy.env': 'environment name',
@@ -404,6 +423,7 @@ flag_text = {
     'deploy.staged': 'deploy files staged in git rather than the HEAD commit',
     'deploy.group_suffix': 'group suffix',
     'deploy.source': 'source of code to deploy directly; example source_location/repo/branch',
+    'deploy.process': 'enable preprocessing of the application version',
 
     # Events
     'events.follow': 'wait and continue to print events as they come',
