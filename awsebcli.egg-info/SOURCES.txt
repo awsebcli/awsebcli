@@ -136,6 +136,7 @@ ebcli/operations/__init__.py
 ebcli/operations/abortops.py
 ebcli/operations/cloneops.py
 ebcli/operations/commonops.py
+ebcli/operations/composeops.py
 ebcli/operations/configops.py
 ebcli/operations/consoleops.py
 ebcli/operations/createops.py
