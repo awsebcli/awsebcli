@@ -838,20 +838,25 @@ def create_app_version_from_source(app_name, source, process=False, label=None, 
         description = description[:195] + '...'
 
     # Parse the source and attempt to push via code commit
-    repository, branch = utils.parse_source(source)
+    source_location, repository, branch = utils.parse_source(source)
 
-    try:
-        result = codecommit.get_branch(repository, branch)
-    except ServiceError as ex:
-        io.log_error("Could not get branch '{0}' for the repository '{1}' because of this error: {2}".format(branch, repository, ex.code))
-        raise ex
+    if source_location == "codecommit":
+        try:
+            result = codecommit.get_branch(repository, branch)
+        except ServiceError as ex:
+            io.log_error("Could not get branch '{0}' for the repository '{1}' because of this error: {2}".format(branch,
+                                                                                                                 repository,
+                                                                                                                 ex.code))
+            raise ex
 
-    commit_id = result['branch']['commitId']
-    if repository is None or commit_id is None:
-        raise ServiceError("Could not find repository or commit id to create an application version")
+        commit_id = result['branch']['commitId']
+        if repository is None or commit_id is None:
+            raise ServiceError("Could not find repository or commit id to create an application version")
+    else:
+        LOG.debug("Source location '{0}' is not supported".format(source_location))
+        raise InvalidOptionsError("This command does not support the given source location: {0}".format(source_location))
 
     # Deploy Application version with freshly pushed git commit
-
     io.log_info('Creating AppVersion ' + version_label)
     return _create_application_version(app_name, version_label, description,
                                        None, None, process, repository=repository, commit_id=commit_id)
@@ -965,9 +970,12 @@ def get_default_keyname():
     return get_config_setting_from_branch_or_default('default_ec2_keyname')
 
 
-def get_default_profile():
+def get_default_profile(require_default=False):
     try:
-        return get_config_setting_from_branch_or_default('profile')
+        profile = get_config_setting_from_branch_or_default('profile')
+        if profile is None and require_default:
+            return "default"
+        return profile
     except NotInitializedError:
         return None
 
