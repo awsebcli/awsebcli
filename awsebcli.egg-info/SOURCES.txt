@@ -3,7 +3,6 @@ LICENSE.txt
 MANIFEST.in
 README.rst
 dev_requirements.txt
-index.rst
 setup.py
 awsebcli.egg-info/PKG-INFO
 awsebcli.egg-info/SOURCES.txt
@@ -12,6 +11,7 @@ awsebcli.egg-info/entry_points.txt
 awsebcli.egg-info/requires.txt
 awsebcli.egg-info/top_level.txt
 bin/__init__.py
+bin/eb
 bin/eb_completion.bash
 bin/install-ebcli.py
 ebcli/__init__.py

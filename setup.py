@@ -43,7 +43,7 @@ setup_options = dict(
     version=ebcli.__version__,
     description='Command Line Interface for AWS EB.',
     long_description=open('README.rst').read() + open('CHANGES.rst').read(),
-    scripts=['bin/eb_completion.bash'],
+    scripts=['bin/eb', 'bin/eb_completion.bash'],
     data_files=data_files,
     author='AWS Elastic Beanstalk',
     author_email='aws-eb-cli@amazon.com',
@@ -71,12 +71,6 @@ setup_options = dict(
         'console_scripts': [
             'eb=ebcli.core.ebcore:main'
         ]
-    },
-    options={
-         # make sure the right shebang is set for the scripts
-         'build_scripts': {
-             'executable': '/apollo/sbin/envroot "$ENVROOT/bin/python"',
-            },
     },
 )
 
