@@ -36,7 +36,11 @@ def ssh_into_instance(instance_id, keep_open=False, force_open=False,
     try:
         ip = instance['PublicIpAddress']
     except KeyError:
-        raise NotFoundError(strings['ssh.noip'])
+        # Now allows access to private subnet
+        if 'PrivateIpAddress' in instance and 'PrivateDnsName' in instance:
+            ip = instance['PrivateDnsName']
+        else:
+            raise NotFoundError(strings['ssh.noip'])
     security_groups = instance['SecurityGroups']
 
     user = 'ec2-user'
@@ -44,6 +48,7 @@ def ssh_into_instance(instance_id, keep_open=False, force_open=False,
     # Get security group to open
     ssh_group = None
     has_restriction = False
+    rule_existed_before = False
     group_id = None
     for group in security_groups:
         group_id = group['GroupId']
@@ -55,9 +60,12 @@ def ssh_into_instance(instance_id, keep_open=False, force_open=False,
                 ssh_group = group_id
                 for rng in permission.get('IpRanges', []):
                     ip_restriction = rng.get('CidrIp', None)
-                    if ip_restriction is not None \
-                            and ip_restriction != '0.0.0.0/0':
-                        has_restriction = True
+                    if ip_restriction is not None:
+                        if ip_restriction != '0.0.0.0/0':
+                            has_restriction = True
+                        elif ip_restriction == '0.0.0.0/0':
+                            rule_existed_before = True
+
 
     if has_restriction and not force_open:
         io.log_warning(strings['ssh.notopening'])
@@ -92,7 +100,7 @@ def ssh_into_instance(instance_id, keep_open=False, force_open=False,
         # Close port for ssh
         if keep_open:
             pass
-        elif (not has_restriction or force_open) and group_id:
+        elif (not has_restriction or force_open) and group_id and not rule_existed_before:
             ec2.revoke_ssh(ssh_group or group_id)
             io.echo(strings['ssh.closeport'])
 

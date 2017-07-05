@@ -58,6 +58,7 @@ ebcli/containers/containerfiles/python3-runtime
 ebcli/controllers/__init__.py
 ebcli/controllers/abort.py
 ebcli/controllers/clone.py
+ebcli/controllers/codesource.py
 ebcli/controllers/config.py
 ebcli/controllers/console.py
 ebcli/controllers/create.py
@@ -112,6 +113,7 @@ ebcli/lib/aws.py
 ebcli/lib/botopatch.py
 ebcli/lib/cloudformation.py
 ebcli/lib/cloudwatch.py
+ebcli/lib/codecommit.py
 ebcli/lib/ec2.py
 ebcli/lib/elasticbeanstalk.py
 ebcli/lib/elb.py
@@ -145,6 +147,7 @@ ebcli/operations/createops.py
 ebcli/operations/deployops.py
 ebcli/operations/envvarops.py
 ebcli/operations/eventsops.py
+ebcli/operations/gitops.py
 ebcli/operations/healthops.py
 ebcli/operations/initializeops.py
 ebcli/operations/listops.py

@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: awsebcli
-Version: 3.7.8
+Version: 3.8.0
 Summary: Command Line Interface for AWS EB.
 Home-page: http://aws.amazon.com/elasticbeanstalk/
 Author: AWS Elastic Beanstalk
@@ -246,6 +246,14 @@ Description: ======
         =========
         Changelog
         =========
+        
+        ------------------
+        3.8.0 (2016-10-13)
+        ------------------
+        - Fixed elb prompt for single instance creations
+        - Fixed eb init to no longer call CreateApplication when a preexisting application is chosen
+        - Allowing eb ssh to attempt to access private ip address if public ip is not available
+        - Added support for CodeCommit deployment and integration
         
         ------------------
         3.7.8 (2016-08-22)
