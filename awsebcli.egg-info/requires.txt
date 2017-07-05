@@ -11,4 +11,5 @@ docker-py >= 1.1.0, <= 1.7.2
 dockerpty >= 0.3.2, <= 0.4.1
 semantic_version == 2.5.0
 tabulate == 0.7.5
+termcolor == 1.1.0
 blessed>=1.9.5

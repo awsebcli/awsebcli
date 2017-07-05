@@ -73,7 +73,6 @@ ebcli/controllers/list.py
 ebcli/controllers/local.py
 ebcli/controllers/logs.py
 ebcli/controllers/open.py
-ebcli/controllers/platform.py
 ebcli/controllers/printenv.py
 ebcli/controllers/restore.py
 ebcli/controllers/scale.py
@@ -84,6 +83,15 @@ ebcli/controllers/swap.py
 ebcli/controllers/terminate.py
 ebcli/controllers/upgrade.py
 ebcli/controllers/use.py
+ebcli/controllers/platform/__init__.py
+ebcli/controllers/platform/create.py
+ebcli/controllers/platform/delete.py
+ebcli/controllers/platform/events.py
+ebcli/controllers/platform/initialize.py
+ebcli/controllers/platform/list.py
+ebcli/controllers/platform/logs.py
+ebcli/controllers/platform/status.py
+ebcli/controllers/platform/use.py
 ebcli/core/__init__.py
 ebcli/core/abstractcontroller.py
 ebcli/core/arghandler.py
@@ -91,6 +99,7 @@ ebcli/core/base.py
 ebcli/core/completer.py
 ebcli/core/ebcore.py
 ebcli/core/ebglobals.py
+ebcli/core/ebpcore.py
 ebcli/core/ebrun.py
 ebcli/core/fileoperations.py
 ebcli/core/hooks.py
@@ -144,6 +153,7 @@ ebcli/objects/environmentsettings.py
 ebcli/objects/event.py
 ebcli/objects/exceptions.py
 ebcli/objects/lifecycleconfiguration.py
+ebcli/objects/platform.py
 ebcli/objects/region.py
 ebcli/objects/requests.py
 ebcli/objects/solutionstack.py
