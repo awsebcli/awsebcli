@@ -72,7 +72,7 @@ strings = {
     'list.info': 'Lists all environments.',
     'terminate.info': 'Terminates the environment.',
     'terminate.epilog': 'This command terminates the environment. To terminate the application and everything in it, use the "--all" option.',
-    'config.info': 'Edits the environment configuration settings or manages saved configurations.',
+    'config.info': "Modify an environment's configuration. Use subcommands to manage saved configurations.",
     'ssh.info': 'Opens the SSH client to connect to an instance.',
     'printenv.info': 'Shows the environment variables.',
     'local.info': 'Runs commands on your local machine.',
@@ -120,7 +120,7 @@ strings = {
     'exit.noregion': 'The EB CLI cannot find a default region. Run "eb init" or use a specific region by including the "--region" option with the command.',
     # Typical response when an environment is in pending state
     'exit.invalidstate': 'The operation cannot be completed at this time due to a pending operation. Try again later.',
-    'branch.noenv': 'This branch does not have a default environment. You must either specify an environment by typing ' 
+    'branch.noenv': 'This branch does not have a default environment. You must either specify an environment by typing '
                     '"eb {cmd} my-env-name" or set a default environment by typing "eb use my-env-name".',
     'ssh.notpresent': 'SSH is not installed. You must install SSH before continuing.',
     'ssh.filenotfound': 'The EB CLI cannot find your SSH key file for keyname "{key-name}".'
@@ -130,10 +130,8 @@ strings = {
     'local.logs.lastlocation': 'Logs were most recently created {prettydate} and written to {location}',
     'local.logs.symlink': 'Updated symlink at {symlink}',
     'local.logs.nologs': 'There are currently no local logs.',
-    'setenv.invalidformat': 'You must use the format VAR_NAME=KEY to set an environment variable. '
-                            'Variables may not contain the = symbol. '
-                            'Variables and keys must start with a letter, '
-                            'number or one of the following symbols: \\ _ . : / + - @',
+    'setenv.invalidformat': 'You must use the format KEY=VALUE to set an environment variable. '
+                            'Variables must start with a letter.',
     'tags.invalidformat': 'You must provide a comma-separated list using the format name=value to set tags. '
                           'Tags may only contain letters, numbers, and the following symbols: / _ . : + = - @',
     'tags.max': 'Elastic Beanstalk supports a maximum of 7 tags.',
@@ -202,7 +200,8 @@ strings = {
     'compose.novalidmodules': 'No valid modules were found. No environments will be created.',
     'appversion.processfailed': 'Pre-processing of application version {app_version} has failed.',
     'appversion.cannotdeploy': 'Some application versions failed to process. Unable to continue deployment.',
-    'appversion.processtimeout': 'All application versions have not reached a "Processed" state. Unable to continue with deployment.'
+    'appversion.processtimeout': 'All application versions have not reached a "Processed" state. Unable to continue with deployment.',
+    'instance.processes.health': '{healthy}/{total} processes healthy.'
 }
 
 prompts = {
@@ -324,6 +323,7 @@ flag_text = {
     'create.config': 'saved configuration name',
     'create.group': 'group suffix',
     'create.modules': 'a list of modules',
+    'create.elb_type': 'load balancer type',
 
     # Deploy
     'deploy.env': 'environment name',
@@ -375,6 +375,8 @@ flag_text = {
     'ssh.number': 'index of instance in list',
     'ssh.instance': 'instance id',
     'ssh.keepopen': 'keep port 22 open',
+    'ssh.command': 'Execute a shell command on the specified instance instead of starting an SSH session.',
+    'ssh.custom': "Specify an SSH command to use instead of 'ssh -i keyfile'. Do not include the remote user and hostname.",
     'ssh.force': 'force port 22 open to 0.0.0.0',
     'ssh.setup': 'setup SSH for the environment',
 
@@ -428,6 +430,7 @@ responses = {
     'env.terminated': 'terminateEnvironment completed successfully.',
     'env.invalidstate': 'Environment named {env-name} is in an invalid state for this operation. Must be Ready.',
     'loadbalancer.notfound': 'There is no ACTIVE Load Balancer named',
+    'loadbalancer.targetgroup.notfound': 'Target group \'{tgarn}\' not found',
     'ec2.sshalreadyopen': 'the specified rule "peer: 0.0.0.0/0, TCP, from port: 22, to port: 22,',
     'swap.success': 'Completed swapping CNAMEs for environments',
     'cfg.nameexists': 'Configuration Template {name} already exists.',

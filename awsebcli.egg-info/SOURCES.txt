@@ -115,12 +115,14 @@ ebcli/lib/cloudwatch.py
 ebcli/lib/ec2.py
 ebcli/lib/elasticbeanstalk.py
 ebcli/lib/elb.py
+ebcli/lib/elbv2.py
 ebcli/lib/heuristics.py
 ebcli/lib/iam.py
 ebcli/lib/s3.py
 ebcli/lib/utils.py
 ebcli/lib/botocoredata/elasticbeanstalk/2010-12-01/paginators-1.json
 ebcli/lib/botocoredata/elasticbeanstalk/2010-12-01/service-2.json
+ebcli/lib/botocoredata/elbv2/2015-12-01/service-2.json
 ebcli/objects/__init__.py
 ebcli/objects/application.py
 ebcli/objects/configuration.py
