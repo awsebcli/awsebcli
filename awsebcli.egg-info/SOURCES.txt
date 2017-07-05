@@ -3,6 +3,7 @@ LICENSE.txt
 MANIFEST.in
 README.rst
 dev_requirements.txt
+index.rst
 setup.py
 awsebcli.egg-info/PKG-INFO
 awsebcli.egg-info/SOURCES.txt
@@ -87,6 +88,7 @@ ebcli/core/base.py
 ebcli/core/completer.py
 ebcli/core/ebcore.py
 ebcli/core/ebglobals.py
+ebcli/core/ebrun.py
 ebcli/core/fileoperations.py
 ebcli/core/hooks.py
 ebcli/core/io.py

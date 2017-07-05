@@ -3,6 +3,12 @@ Changelog
 =========
 
 ------------------
+3.8.6 (2016-12-08)
+------------------
+- Added support for working directories containing white-spaces
+- Added ca-central-1 Canada (Central) support
+
+------------------
 3.8.5 (2016-12-01)
 ------------------
 - Added support for CodeBuild by autodetecting a buildspec file and deploying with settings from that

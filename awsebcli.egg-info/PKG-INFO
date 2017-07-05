@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: awsebcli
-Version: 3.8.5
+Version: 3.8.6
 Summary: Command Line Interface for AWS EB.
 Home-page: http://aws.amazon.com/elasticbeanstalk/
 Author: AWS Elastic Beanstalk
@@ -246,6 +246,12 @@ Description: ======
         =========
         Changelog
         =========
+        
+        ------------------
+        3.8.6 (2016-12-08)
+        ------------------
+        - Added support for working directories containing white-spaces
+        - Added ca-central-1 Canada (Central) support
         
         ------------------
         3.8.5 (2016-12-01)
