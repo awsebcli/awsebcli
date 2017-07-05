@@ -3,7 +3,6 @@ LICENSE.txt
 MANIFEST.in
 README.rst
 dev_requirements.txt
-output.json
 setup.py
 awsebcli.egg-info/PKG-INFO
 awsebcli.egg-info/SOURCES.txt
